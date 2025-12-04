@@ -133,39 +133,99 @@
 
                 </div>
 
-                <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="600">
+                <form id="contact-form" class="php-email-form" data-aos="fade-up" data-aos-delay="600">
                     <div class="row gy-4">
-
                         <div class="col-md-6">
-                            <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                            <input type="text" id="firstName" name="firstName" class="form-control" placeholder="Vardas" required>
                         </div>
-
-                        <div class="col-md-6 ">
-                            <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                        <div class="col-md-6">
+                            <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Pavardė" required>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="email" id="email" name="email" class="form-control" placeholder="El. paštas" required>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="Telefono numeris" required>
+                        </div>
+                        <div class="col-md-12">
+                            <input type="text" id="address" name="address" class="form-control" placeholder="Adresas" required>
                         </div>
 
                         <div class="col-md-12">
-                            <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                            <label>Kokioje srityje dirbate?</label>
+                            <input type="text" id="q1" name="question1" class="form-control" required>
                         </div>
 
                         <div class="col-md-12">
-                            <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                            <label>Kaip sužinojote apie mane?</label>
+                            <input type="text" id="q2" name="question2" class="form-control" required>
                         </div>
+
+                        <div class="col-md-12">
+                            <label>Įvertinkite mano CV (0–10):</label>
+                            <select id="q3" name="question3" class="form-control" required>
+                                <option value="" disabled selected>Pasirinkite įvertinimą</option>
+                                <option>0</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                            </select>
+                        </div>
+
+
 
                         <div class="col-md-12 text-center">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                            <button type="submit">Send Message</button>
+                            <button type="submit" id="submitBtn">Submit</button>
                         </div>
-
                     </div>
-                </form><!-- End Contact Form -->
+                </form>
+
+                <div id="form-results" style="margin-top:20px; color: hotpink;"></div>
+                <div id="success-msg" style="display:none; color: lime; font-weight:bold; margin-top:10px;">Duomenys pateikti sėkmingai!</div>
+
 
             </div>
 
         </section><!-- /Contact Section -->
+        <!--                                                 -->
+
+        <section id="memory-game" class="section">
+            <div class="container">
+
+                <h2>Mano Žaidimas</h2>
+
+                <label>Sunkumas:</label>
+                <select id="difficulty">
+                    <option value="easy">Lengvas (4x3)</option>
+                    <option value="hard">Sunkus (6x4)</option>
+                </select>
+
+                <div id="stats">
+                    <p>Ėjimai: <span id="moves">0</span></p>
+                    <p>Poros: <span id="matches">0</span></p>
+                    <p>Laikmatis: <span id="timer">0</span>s</p>
+                    <p>Geriausias (Lengvas): <span id="best-easy">-</span></p>
+                    <p>Geriausias (Sunkus): <span id="best-hard">-</span></p>
+                </div>
+
+                <button id="start">Start</button>
+                <button id="reset">Atnaujinti</button>
+
+                <div id="board" class="game-board"></div>
+                <h3 id="win-message"></h3>
+
+            </div>
+        </section>
+
+        <!--                                                 -->
+
 
     </main>
 
@@ -212,6 +272,7 @@
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/custom.js"></script>
 
 </body>
 
