@@ -101,21 +101,20 @@ button,
 	}
 
 ol {
-	counter-reset: skaicius;
-	list-style: none;
-	padding-left: 0;
+	list-style-position: inside;
+	padding-left: 1.5em;
+	margin-left: 0;
+	color: hotpink;
 }
 
 	ol li {
-		counter-increment: skaicius;
-		margin-left: 20px;
+		margin-bottom: 5px;
 	}
 
-		ol li::before {
-			content: counter(skaicius) ". ";
-			color: hotpink;
-			font-weight: bold;
-		}
+	ol ol {
+		list-style-type: decimal;
+	}
+
 
 ul {
 	list-style: none;
@@ -266,10 +265,14 @@ ul {
 
 
 .services {
-	background: linear-gradient(45deg, pink, hotpink, magenta);
+	background: linear-gradient(45deg, peachpuff, moccasin, papayawhip);
 	background-size: 300% 300%;
-	animation: gradientMove 8s ease infinite;
+	animation: gradientMove 10s ease infinite;
+	color: darkslategray;
+	padding: 40px 0;
+	border-radius: 10px;
 }
+
 
 @keyframes gradientMove {
 	0% {
@@ -328,3 +331,30 @@ ul {
 
 
 
+#board {
+	display: grid;
+	gap: 5px;
+	margin-top: 20px;
+	justify-content: start;
+}
+
+.card {
+	width: 80px;
+	height: 80px;
+	background: lightgray;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 30px;
+	cursor: pointer;
+	border-radius: 6px;
+}
+
+	.card.flipped {
+		background: white;
+	}
+
+	.card.matched {
+		background: lightgreen;
+		cursor: default;
+	}
